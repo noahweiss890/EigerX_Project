@@ -1,0 +1,18 @@
+Schema
+EMPLOYEE:
+ID (Integer) - Employee ID number. This is a primary key.
+NAME (String) - Employee name
+SALARY (Integer) - Employee salary
+DEPT_ID (Integer) - ID of the employee's department, a foreign key to DEPARTMENT.ID.
+DEPARTMENT:
+ID (Integer) - Department ID. This is a primary key.
+NAME (String) - Department name.
+LOCATION (String) - Department location.
+
+
+
+SELECT d.NAME AS 'Department', COUNT(e.ID) AS 'Employee Count'
+FROM DEPARTMENT as d
+LEFT JOIN EMPLOYEE as e ON d.ID = e.DEPT_ID
+GROUP BY d.ID, d.NAME
+ORDER BY COUNT(e.ID) DESC, d.NAME ASC
