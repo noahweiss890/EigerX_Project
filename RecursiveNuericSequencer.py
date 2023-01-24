@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-# Description: This program takes a sequence of numbers and returns the biggest number and the number of times it occurs
+# Description: This function takes a sequence of numbers and returns the biggest number and the number of times it occurs
 def recursice_numeric_sequencer(n, max_num=float("-inf"), max_count=0):
     """
     n: a number

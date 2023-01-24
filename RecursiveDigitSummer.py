@@ -1,6 +1,6 @@
 import unittest
 
-# Description: This program will take a number and add all of the digits together recursively
+# Description: This function will take a number and add all of the digits together recursively
 def count_digits(n):
     """
     n: a non-negative integer

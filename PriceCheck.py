@@ -1,18 +1,19 @@
 from typing import List
 import unittest
 
+# Description: This function takes a list of products, a list of prices for each product, a list of products sold, and a list of prices for each product sold and returns the number of products that were sold with incorrect prices
 def priceCheck(products: List[str], productPrices: List[float], productSold: List[str], soldPrice: List[float]) -> int:
     """
     products: list of product names
     productPrices: list of prices for each product
     productSold: list of product names sold
     soldPrice: list of prices for each product sold
-    return: number of products with incorrect price
+    return: number of products sold with incorrect price
     """
     error_count = 0
-    product_prices = dict(zip(products, productPrices))
-    for i in range(len(productSold)):
-        if product_prices.get(productSold[i], None) != soldPrice[i]:
+    product_prices = dict(zip(products, productPrices)) # create a dictionary of product names and prices
+    for i in range(len(productSold)): # iterate through the products sold and check if the price is correct
+        if product_prices.get(productSold[i], None) != soldPrice[i]: # if the price is incorrect, increment the error count
             error_count += 1
     return error_count
 
