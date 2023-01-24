@@ -9,12 +9,6 @@ def priceCheck(products: List[str], productPrices: List[float], productSold: Lis
     soldPrice: list of prices for each product sold
     return: number of products with incorrect price
     """
-    # assert len(products) == len(productPrices)
-    # assert len(productSold) == len(soldPrice)
-    # assert isinstance(products, list) and all(isinstance(i, str) for i in products)
-    # assert isinstance(productPrices, list) and all(isinstance(i, str) for i in productPrices)
-    # assert isinstance(productSold, list) and all(isinstance(i, str) for i in productSold)
-    # assert isinstance(soldPrice, list) and all(isinstance(i, float) for i in soldPrice)
     error_count = 0
     product_prices = dict(zip(products, productPrices))
     for i in range(len(productSold)):

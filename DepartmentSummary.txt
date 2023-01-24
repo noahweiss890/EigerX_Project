@@ -10,6 +10,7 @@ NAME (String) - Department name.
 LOCATION (String) - Department location.
 
 
+SOLUTION:
 
 SELECT d.NAME AS 'Department', COUNT(e.ID) AS 'Employee Count'
 FROM DEPARTMENT as d

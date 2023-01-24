@@ -1,6 +1,8 @@
+import unittest
+from unittest.mock import patch
 
 # Description: This program takes a sequence of numbers and returns the biggest number and the number of times it occurs
-def recursice_numeric_sequencer(n, max_num=0, max_count=0):
+def recursice_numeric_sequencer(n, max_num=float("-inf"), max_count=0):
     """
     n: a number
     max_num: the biggest number in the sequence up until this point
@@ -18,7 +20,20 @@ def recursice_numeric_sequencer(n, max_num=0, max_count=0):
         return recursice_numeric_sequencer(next_int, max_num, max_count)
     
 
-# test
-next_int = int(input())
-# input: 1 5 42 -376 5 19 5 3 42 2 0
-assert recursice_numeric_sequencer(next_int) == (42, 2)
+# tests
+
+class MyTests(unittest.TestCase):
+    @patch('builtins.input', side_effect=[5, 42, -376, 5, 19, 5, 3, 42, 2, 0])
+    def test_func_given(self, mock_input):
+        self.assertEqual(recursice_numeric_sequencer(1), (42, 2))
+
+    def test_func_empty(self):
+        self.assertEqual(recursice_numeric_sequencer(0), (float("-inf"), 0))
+
+    @patch('builtins.input', side_effect=[-5, -42, -376, -5, -19, -5, -34, -42, -23, 0])
+    def test_func_negitives(self, mock_input):
+        self.assertEqual(recursice_numeric_sequencer(-10), (-5, 3))
+
+
+if __name__ == '__main__':
+    unittest.main()
